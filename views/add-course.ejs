@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+    <div class="form-container">
+
+        <h2>Add New Course</h2>
+
+        <form action="/admin/courses/add" method="POST">
+
+            <input
+                type="text"
+                name="course_name"
+                placeholder="Enter Course Name"
+                required
+            >
+
+            <input
+                type="text"
+                name="class"
+                placeholder="Enter Class (e.g. 8, 9, 10, 11, 12)"
+                required
+            >
+
+            <input
+                type="text"
+                name="subject"
+                placeholder="Enter Subject (e.g. Mathematics)"
+                required
+            >
+
+            <textarea
+                name="description"
+                placeholder="Enter Course Description"
+                rows="5"
+            ></textarea>
+
+            <button type="submit">Add Course</button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

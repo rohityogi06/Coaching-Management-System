@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration Requests</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+<div class="form-container">
+
+<h2>🆕 Pending Registration Requests</h2>
+
+<table border="1" width="100%" cellpadding="10">
+
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Action</th>
+</tr>
+
+<% students.forEach(student => { %>
+
+<tr>
+
+    <td><%= student.name %></td>
+
+    <td><%= student.email %></td>
+
+    <td><%= student.phone %></td>
+
+    <td>
+
+        <!-- Approve -->
+        <form action="/admin/approve/<%= student.id %>"
+              method="POST"
+              style="display:inline;"
+              onsubmit="return confirm('Approve this student?');">
+
+            <button type="submit">✅ Approve</button>
+
+        </form>
+
+        <!-- Reject -->
+        <form action="/admin/reject/<%= student.id %>"
+              method="POST"
+              style="display:inline;"
+              onsubmit="return confirm('Reject this student?');">
+
+            <button type="submit">❌ Reject</button>
+
+        </form>
+
+    </td>
+
+</tr>
+
+<% }) %>
+
+</table>
+
+</div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

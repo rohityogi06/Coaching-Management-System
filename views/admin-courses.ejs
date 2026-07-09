@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Courses</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="hero">
+    <h1>Manage Courses</h1>
+</section>
+
+<section class="table-section">
+
+    <a href="/admin/courses/add" class="btn">➕ Add Course</a>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Course Name</th>
+            <th>Action</th>
+        </tr>
+
+        <% courses.forEach(course => { %>
+
+        <tr>
+
+            <td><%= course.id %></td>
+
+            <td><%= course.course_name %></td>
+
+            <td>
+
+                <a href="/admin/courses/edit/<%= course.id %>">Edit</a> |
+
+                <a href="/admin/courses/delete/<%= course.id %>"
+                onclick="return confirm('Delete this course?')">
+                Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        <% }) %>
+
+    </table>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

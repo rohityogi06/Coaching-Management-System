@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify OTP</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+<div class="form-container">
+
+<h2>Verify OTP</h2>
+
+<form action="/verify-otp" method="POST">
+
+<input
+type="text"
+name="otp"
+placeholder="Enter OTP"
+required
+>
+
+<button type="submit">
+
+Verify OTP
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

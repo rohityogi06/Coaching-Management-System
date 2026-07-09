@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Study Material</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="dashboard-section">
+
+<div class="form-container">
+
+<h2>📚 Study Material</h2>
+
+<% if(notes.length==0){ %>
+
+<p>No Study Material Available.</p>
+
+<% } else { %>
+
+<table border="1" cellpadding="10" width="100%">
+
+<tr>
+
+<th>Course</th>
+
+<th>Title</th>
+
+<th>Description</th>
+
+<th>Date</th>
+
+<th>PDF</th>
+
+</tr>
+
+<% notes.forEach(note=>{ %>
+
+<tr>
+
+<td><%= note.course_name %></td>
+
+<td><%= note.title %></td>
+
+<td><%= note.description %></td>
+
+<td><%= note.upload_date %></td>
+
+<td>
+
+<a href="/uploads/<%= note.file_name %>" target="_blank">
+
+📥 Download
+
+</a>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>
+
+<% } %>
+
+</div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Result</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+    <div class="form-container">
+
+        <h2>📝 Edit Student Result</h2>
+
+        <form action="/admin/results/edit/<%= result.id %>" method="POST">
+
+            <label>Select Student</label>
+
+            <select name="student_id" required>
+
+                <% students.forEach(student => { %>
+
+                    <option
+                        value="<%= student.id %>"
+                        <%= student.id === result.student_id ? "selected" : "" %>>
+                        <%= student.name %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <label>Select Course</label>
+
+            <select name="course_id" required>
+
+                <% courses.forEach(course => { %>
+
+                    <option
+                        value="<%= course.id %>"
+                        <%= course.id === result.course_id ? "selected" : "" %>>
+                        <%= course.course_name %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <label>Exam Name</label>
+
+            <input
+                type="text"
+                name="exam_name"
+                value="<%= result.exam_name %>"
+                required
+            >
+
+            <label>Marks Obtained</label>
+
+            <input
+                type="number"
+                name="marks"
+                value="<%= result.marks %>"
+                required
+            >
+
+            <label>Total Marks</label>
+
+            <input
+                type="number"
+                name="total_marks"
+                value="<%= result.total_marks %>"
+                required
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Update Result
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

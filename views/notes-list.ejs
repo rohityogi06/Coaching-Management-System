@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes List</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<h2 style="text-align:center;">📚 Study Material</h2>
+
+<table border="1" cellpadding="10" style="margin:auto; width:90%;">
+
+<tr>
+    <th>ID</th>
+    <th>Course</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>PDF</th>
+    <th>Action</th>
+</tr>
+
+<% notes.forEach(note=>{ %>
+
+<tr>
+
+<td><%= note.id %></td>
+
+<td><%= note.course_name %></td>
+
+<td><%= note.title %></td>
+
+<td><%= note.description %></td>
+
+<td><%= note.upload_date %></td>
+
+<td>
+
+<a href="/uploads/<%= note.file_name %>" target="_blank">
+
+View PDF
+
+</a>
+
+</td>
+
+<td>
+
+<a href="/admin/notes/delete/<%= note.id %>">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+<% }) %>
+
+</table>
+<script src="/js/script.js"></script>
+</body>
+</html>

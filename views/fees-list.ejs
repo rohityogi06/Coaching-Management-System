@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Records</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="hero">
+    <h1>💰 Fees Records</h1>
+</section>
+
+<section class="table-section">
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Student</th>
+    <th>Amount</th>
+    <th>Payment Date</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+<% fees.forEach(fee => { %>
+
+<tr>
+
+    <td><%= fee.id %></td>
+
+    <td><%= fee.name %></td>
+
+    <td>₹ <%= fee.amount %></td>
+
+    <td><%= fee.payment_date %></td>
+
+    <td><%= fee.status %></td>
+
+    <td>
+
+        <a href="/admin/fees/edit/<%= fee.id %>">
+            Edit
+        </a>
+
+        |
+
+        <a href="/admin/fees/delete/<%= fee.id %>"
+        onclick="return confirm('Delete this fee record?')">
+
+            Delete
+
+        </a>
+
+    </td>
+
+</tr>
+
+<% }) %>
+
+</table>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

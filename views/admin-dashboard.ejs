@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<!-- Hero -->
+
+<section class="hero">
+
+    <h1>Welcome Admin 👨‍🏫</h1>
+
+    <p>Manage your coaching classes from one place.</p>
+
+</section>
+
+<!-- Analytics -->
+
+<section class="analytics">
+
+    <div class="analytics-card">
+        <h2>👨‍🎓 Students</h2>
+        <h1><%= totalStudents %></h1>
+    </div>
+
+    <div class="analytics-card">
+        <h2>📚 Courses</h2>
+        <h1><%= totalCourses %></h1>
+    </div>
+
+    <div class="analytics-card">
+        <h2>💰 Fees</h2>
+        <h1><%= totalFees %></h1>
+    </div>
+
+    <div class="analytics-card">
+        <h2>💵 Revenue</h2>
+        <h1>₹ <%= totalRevenue %></h1>
+    </div>
+
+    <div class="analytics-card">
+        <h2>📝 Results</h2>
+        <h1><%= totalResults %></h1>
+    </div>
+
+    <div class="analytics-card">
+        <h2>📢 Notices</h2>
+        <h1><%= totalNotices %></h1>
+    </div>
+
+</section>
+
+<!-- Dashboard -->
+
+<section class="dashboard-section">
+
+    <div class="dashboard-card">
+        <h2>👨‍🎓 Students</h2>
+        <p>Manage all students.</p>
+        <a href="/admin/students">View Students</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>📚 Courses</h2>
+        <p>Manage all courses.</p>
+        <a href="/admin/courses">View Courses</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>➕ Add Student</h2>
+        <p>Add new students.</p>
+        <a href="/admin/students/add">Add Student</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>➕ Add Course</h2>
+        <p>Create new course.</p>
+        <a href="/admin/courses/add">Add Course</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>🎓 Assign Course</h2>
+        <p>Assign course to students.</p>
+        <a href="/admin/assign-course">Assign Course</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>📅 Attendance</h2>
+        <p>Manage attendance.</p>
+        <a href="/admin/attendance">Attendance</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>💰 Fees</h2>
+        <p>Manage fees.</p>
+        <a href="/admin/fees">Manage Fees</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>📝 Results</h2>
+        <p>Manage Results.</p>
+        <a href="/admin/results">Results</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>📢 Notice Board</h2>
+        <p>Manage Notices.</p>
+
+        <a href="/admin/notices">➕ Add Notice</a>
+
+        <br><br>
+
+        <a href="/admin/notices/list">📋 View Notices</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>👤 Admin Profile</h2>
+        <p>Edit profile and password.</p>
+
+        <a href="/admin/profile">My Profile</a>
+    </div>
+
+    <div class="dashboard-card">
+        <h2>🚪 Logout</h2>
+        <p>Logout safely.</p>
+
+        <a href="/admin/logout">Logout</a>
+    </div>
+
+    <div class="dashboard-card">
+
+       <h2>📚 Study Material</h2>
+
+        <p>Upload Notes & PDFs for Students.</p>
+
+        <a href="/admin/notes">Upload Notes</a>
+
+    </div>
+
+
+<!-- Report card-->
+    <div class="dashboard-card">
+
+       <h2>📄 Reports</h2>
+
+        <p>Search, Export & Print Reports</p>
+
+         <a href="/admin/reports">Open Reports</a>
+
+</div>
+
+
+<!-- Registretion request-->
+
+<div class="dashboard-card">
+
+    <h2>
+        🆕 Registration Requests
+
+        <% if(pendingRequests > 0){ %>
+
+            <span class="badge">
+                <%= pendingRequests %>
+            </span>
+
+        <% } %>
+
+    </h2>
+
+    <p>Students waiting for approval.</p>
+
+    <a href="/admin/requests">Open Requests</a>
+
+</div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

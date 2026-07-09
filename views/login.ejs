@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<%- include("partials/navbar") %>
+
+<main>
+
+    <section class="hero">
+        <h1>Student Login</h1>
+        <p>Access your account</p>
+    </section>
+
+    <section class="auth-section">
+
+        <form class="auth-form" action="/login" method="POST">
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+            <!-- Forgot Password -->
+            <p style="margin-top:15px;">
+                <a href="/forgot-password">
+                    🔑 Forgot Password?
+                </a>
+            </p>
+
+            <p>
+                Don't have an account?
+                <a href="/register">Register</a>
+            </p>
+
+        </form>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

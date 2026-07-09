@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+    <div class="form-container">
+
+        <h2>Edit Course</h2>
+
+        <form action="/admin/courses/edit/<%= course.id %>" method="POST">
+
+            <input
+                type="text"
+                name="course_name"
+                value="<%= course.course_name %>"
+                required
+            >
+
+            <input
+                type="text"
+                name="class"
+                value="<%= course.class %>"
+                required
+            >
+
+            <input
+                type="text"
+                name="subject"
+                value="<%= course.subject %>"
+                required
+            >
+
+            <textarea
+                name="description"
+                rows="5"
+            ><%= course.description %></textarea>
+
+            <button type="submit">Update Course</button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Upload Notes</title>
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+<div class="form-container">
+
+<h2>📚 Upload Study Material</h2>
+
+<form
+action="/admin/notes"
+method="POST"
+enctype="multipart/form-data"
+>
+
+<label>Title</label>
+
+<input
+type="text"
+name="title"
+required
+>
+
+<label>Course</label>
+
+<select name="course_id" required>
+
+<option value="">Select Course</option>
+
+<% courses.forEach(course=>{ %>
+
+<option value="<%= course.id %>">
+
+<%= course.course_name %>
+
+</option>
+
+<% }) %>
+
+</select>
+
+<label>Description</label>
+
+<textarea
+name="description"
+rows="5"
+></textarea>
+
+<label>Choose PDF</label>
+
+<input
+type="file"
+name="pdf"
+accept=".pdf"
+required
+>
+
+<label>Upload Date</label>
+
+<input
+type="date"
+name="upload_date"
+required
+>
+
+<button type="submit">
+
+Upload Notes
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Fees</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+    <div class="form-container">
+
+        <h2>💰 Manage Student Fees</h2>
+
+        <form action="/admin/fees" method="POST">
+
+            <label>Select Student</label>
+
+            <select name="student_id" required>
+
+                <option value="">-- Select Student --</option>
+
+                <% students.forEach(student => { %>
+
+                    <option value="<%= student.id %>">
+                        <%= student.name %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <label>Amount (₹)</label>
+
+            <input
+                type="number"
+                name="amount"
+                placeholder="Enter Amount"
+                required
+            >
+
+            <label>Payment Date</label>
+
+            <input
+                type="date"
+                name="payment_date"
+                required
+            >
+
+            <label>Status</label>
+
+            <select name="status" required>
+
+                <option value="Paid">Paid</option>
+
+                <option value="Pending">Pending</option>
+
+            </select>
+
+            <button type="submit">
+                Save Fees
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/admin/fees/list" class="btn">
+            📋 View Fees Records
+        </a>
+
+    </div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

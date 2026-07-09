@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="hero">
+    <h1>All Students</h1>
+</section>
+
+<section class="table-section">
+
+    <a href="/admin/students/add" class="btn">➕ Add Student</a>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+
+        <% students.forEach(student => { %>
+
+        <tr>
+
+            <td><%= student.id %></td>
+            <td><%= student.name %></td>
+            <td><%= student.email %></td>
+            <td><%= student.phone %></td>
+
+            <td>
+
+                <a href="/admin/students/edit/<%= student.id %>">Edit</a>
+
+                |
+
+                <a href="/admin/students/delete/<%= student.id %>"
+                 onclick="return confirm('Are you sure you want to delete this student?')">
+                 Delete
+                </a>
+            </td>
+
+        </tr>
+
+        <% }) %>
+
+    </table>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

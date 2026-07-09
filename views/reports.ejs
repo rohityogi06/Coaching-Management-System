@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="hero">
+    <h1>📄 Reports Management</h1>
+    <p>Search, Export and Print Reports</p>
+</section>
+
+<section class="dashboard-section">
+
+    <!-- Students Report -->
+    <div class="dashboard-card">
+        <h2>👨‍🎓 Students Report</h2>
+        <p>Search students and export PDF.</p>
+
+        <a href="/admin/students">🔍 Search Students</a>
+
+        <br><br>
+
+        <a href="/admin/reports/students/pdf">
+            📄 Export PDF
+        </a>
+    </div>
+
+    <!-- Fees Report -->
+    <div class="dashboard-card">
+        <h2>💰 Fees Report</h2>
+        <p>Search fees and export PDF.</p>
+
+        <a href="/admin/fees/list">🔍 Search Fees</a>
+
+        <br><br>
+
+        <a href="/admin/reports/fees/pdf">
+            📄 Export PDF
+        </a>
+    </div>
+
+    <!-- Results Report -->
+    <div class="dashboard-card">
+        <h2>📝 Results Report</h2>
+        <p>Search results and export PDF.</p>
+
+        <a href="/admin/results/list">🔍 Search Results</a>
+
+        <br><br>
+
+        <a href="/admin/reports/results/pdf">
+            📄 Export PDF
+        </a>
+    </div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

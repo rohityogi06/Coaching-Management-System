@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results List</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="hero">
+    <h1>📝 Student Results</h1>
+    <p>Manage all student results</p>
+</section>
+
+<section class="table-section">
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Exam</th>
+                <th>Marks</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <% results.forEach(result => { %>
+
+                <tr>
+
+                    <td><%= result.id %></td>
+
+                    <td><%= result.name %></td>
+
+                    <td><%= result.course_name %></td>
+
+                    <td><%= result.exam_name %></td>
+
+                    <td><%= result.marks %></td>
+
+                    <td><%= result.total_marks %></td>
+
+                    <td>
+                        <%= ((result.marks / result.total_marks) * 100).toFixed(2) %>%
+                    </td>
+
+                    <td>
+
+                        <a href="/admin/results/edit/<%= result.id %>">
+                            Edit
+                        </a>
+
+                        |
+
+                        <a href="/admin/results/delete/<%= result.id %>"
+                           onclick="return confirm('Delete this result?')">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            <% }) %>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

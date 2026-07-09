@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Attendance</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<!-- ====================== -->
+<!-- Navbar -->
+<!-- ====================== -->
+
+<%- include("partials/navbar") %>
+
+<!-- ====================== -->
+<!-- Attendance Section -->
+<!-- ====================== -->
+
+<section class="form-section">
+
+    <div class="form-container">
+
+        <h2>📅 My Attendance</h2>
+
+        <!-- ====================== -->
+        <!-- Attendance Summary -->
+        <!-- ====================== -->
+
+        <div class="dashboard-card attendance-summary">
+
+            <h2>📊 Attendance Summary</h2>
+
+            <hr>
+
+            <p class="summary-item">
+                <strong>Total Classes:</strong>
+                <%= totalClasses %>
+            </p>
+
+            <p class="summary-item present">
+                ✅ Present:
+                <%= presentClasses %>
+            </p>
+
+            <p class="summary-item absent">
+                ❌ Absent:
+                <%= absentClasses %>
+            </p>
+
+            <p class="attendance-percent">
+                📈 Attendance:
+                <%= percentage %>%
+            </p>
+
+            <!-- Progress Bar -->
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    style="width:<%= percentage %>%">
+                </div>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <% if(attendance.length > 0){ %>
+
+        <!-- ====================== -->
+        <!-- Attendance Table -->
+        <!-- ====================== -->
+
+        <table border="1" width="100%" cellpadding="10">
+
+            <tr>
+
+                <th>Date</th>
+
+                <th>Course</th>
+
+                <th>Status</th>
+
+            </tr>
+
+            <% attendance.forEach(item => { %>
+
+            <tr>
+
+                <td>
+                    <%= new Date(item.attendance_date).toLocaleDateString() %>
+                </td>
+
+                <td>
+                    <%= item.course_name %>
+                </td>
+
+                <td>
+
+                    <% if(item.status === "Present"){ %>
+
+                        <span class="status-present">
+                            ✅ Present
+                        </span>
+
+                    <% } else { %>
+
+                        <span class="status-absent">
+                            ❌ Absent
+                        </span>
+
+                    <% } %>
+
+                </td>
+
+            </tr>
+
+            <% }) %>
+
+        </table>
+
+        <% } else { %>
+
+            <h3 class="no-attendance">
+
+                No Attendance Found
+
+            </h3>
+
+        <% } %>
+
+    </div>
+
+</section>
+
+<!-- ====================== -->
+<!-- Footer -->
+<!-- ====================== -->
+
+<%- include("partials/footer") %>
+
+<script src="/js/script.js"></script>
+
+</body>
+
+</html>

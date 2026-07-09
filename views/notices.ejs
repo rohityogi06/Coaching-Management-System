@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Notices</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+    <div class="form-container">
+
+        <h2>📢 Add New Notice</h2>
+
+        <form action="/admin/notices" method="POST">
+
+            <label>Notice Title</label>
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Enter Notice Title"
+                required
+            >
+
+            <label>Description</label>
+
+            <textarea
+                name="description"
+                rows="5"
+                placeholder="Enter Notice Description"
+                required></textarea>
+
+            <label>Notice Date</label>
+
+            <input
+                type="date"
+                name="notice_date"
+                required
+            >
+
+            <button type="submit">
+                Save Notice
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/admin/notices/list" class="btn">
+            📋 View Notices
+        </a>
+
+    </div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

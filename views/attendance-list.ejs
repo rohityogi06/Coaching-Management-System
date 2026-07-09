@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Records</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="hero">
+    <h1>Attendance Records</h1>
+</section>
+
+<section class="table-section">
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>Student</th>
+    <th>Course</th>
+    <th>Date</th>
+    <th>Status</th>
+</tr>
+
+<% attendance.forEach(record => { %>
+
+<tr>
+
+    <td><%= record.id %></td>
+
+    <td><%= record.student_name %></td>
+
+    <td><%= record.course_name %></td>
+
+    <td><%= record.attendance_date %></td>
+
+    <td><%= record.status %></td>
+
+</tr>
+
+<% }) %>
+
+</table>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

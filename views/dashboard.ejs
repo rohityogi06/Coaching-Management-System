@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome, <%= student.name %> 👋</h1>
+        <p>Welcome to your Student Dashboard.</p>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="dashboard-section">
+
+        <!-- Profile -->
+        <div class="dashboard-card">
+            <h2>👤 My Profile</h2>
+            <hr>
+
+            <p><strong>Name:</strong> <%= student.name %></p>
+            <p><strong>Email:</strong> <%= student.email %></p>
+            <p><strong>Phone:</strong> <%= student.phone %></p>
+        </div>
+
+        <!-- Courses -->
+        <div class="dashboard-card">
+            <h2>📚 My Courses</h2>
+            <hr>
+
+            <% if(courses && courses.length > 0){ %>
+
+                <ul>
+                    <% courses.forEach(course => { %>
+
+                        <li>
+                            <strong><%= course.course_name %></strong><br>
+
+                            Class: <%= course.class %><br>
+                            Subject: <%= course.subject %><br>
+                            <%= course.description %>
+
+                            <hr>
+                        </li>
+
+                    <% }) %>
+                </ul>
+
+            <% } else { %>
+                <p>No Course Assigned Yet.</p>
+            <% } %>
+        </div>
+
+        <!-- 💰 Fees -->
+        <div class="dashboard-card">
+            <h2>💰 My Fees</h2>
+            <hr>
+
+            <% if(fees && fees.length > 0){ %>
+
+                <% fees.forEach(f => { %>
+                    <p>
+                        ₹<%= f.amount %> - 
+                        <b><%= f.status %></b><br>
+                        <small><%= f.payment_date %></small>
+                    </p>
+                    <hr>
+                <% }) %>
+
+            <% } else { %>
+                <p>No fee records found</p>
+            <% } %>
+        </div>
+
+        <!-- 📝 Results -->
+        <div class="dashboard-card">
+            <h2>📝 My Results</h2>
+            <hr>
+
+            <% if(results && results.length > 0){ %>
+
+                <% results.forEach(r => { %>
+
+                    <p>
+                        <b><%= r.exam_name %></b><br>
+                        Marks: <%= r.marks %>/<%= r.total_marks %><br>
+                        Course: <%= r.course_name %><br>
+
+                        <% let percent = (r.marks / r.total_marks) * 100; %>
+                        Percentage: <b><%= percent.toFixed(2) %>%</b>
+                    </p>
+
+                    <hr>
+
+                <% }) %>
+
+            <% } else { %>
+                <p>No results yet</p>
+            <% } %>
+        </div>
+
+        <!-- 📢 Notices -->
+        <div class="dashboard-card">
+            <h2>📢 Latest Notices</h2>
+            <hr>
+
+            <% if(notices && notices.length > 0){ %>
+
+                <% notices.forEach(n => { %>
+
+                    <p>
+                        <b><%= n.title %></b><br>
+                        <%= n.description %><br>
+                        <small><%= n.notice_date %></small>
+                    </p>
+
+                    <hr>
+
+                <% }) %>
+
+            <% } else { %>
+                <p>No notices available</p>
+            <% } %>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="dashboard-card">
+            <h2>⚡ Quick Actions</h2>
+            <hr>
+
+            <a href="/courses">📚 View All Courses</a>
+
+            <br><br>
+
+            <a href="/contact">📞 Contact Us</a>
+             
+            <br><br>
+
+            <!-- 👇 ADD THIS LINE -->
+           <a href="/student/profile">👤 Edit Profile</a>
+
+
+            <br><br>
+
+            <a href="/logout">🚪 Logout</a>
+        </div>
+
+
+        <div class="dashboard-card">
+
+          <h2>📚 Study Material</h2>
+
+            <p>Download Notes & PDFs</p>
+
+           <a href="/student/notes">
+  
+          View Notes
+
+         </a>
+
+    </div>
+
+
+    <!-- ====================== -->
+    <!-- My Attendance -->
+    <!-- ====================== -->
+
+    <div class="dashboard-card">
+
+        <h2>📅 My Attendance</h2>
+
+        <hr>
+
+         <p>View your attendance records.</p>
+
+         <a href="/student/attendance">
+
+        View Attendance
+
+         </a>
+
+    </div>
+
+    </section>
+
+</main>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>

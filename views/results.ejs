@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Results</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="form-section">
+
+    <div class="form-container">
+
+        <h2>📝 Add Student Result</h2>
+
+        <form action="/admin/results" method="POST">
+
+            <label>Select Student</label>
+
+            <select name="student_id" required>
+                <option value="">-- Select Student --</option>
+
+                <% students.forEach(student => { %>
+
+                    <option value="<%= student.id %>">
+                        <%= student.name %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <label>Select Course</label>
+
+            <select name="course_id" required>
+                <option value="">-- Select Course --</option>
+
+                <% courses.forEach(course => { %>
+
+                    <option value="<%= course.id %>">
+                        <%= course.course_name %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <label>Exam Name</label>
+
+            <input
+                type="text"
+                name="exam_name"
+                placeholder="e.g. Unit Test 1"
+                required
+            >
+
+            <label>Marks Obtained</label>
+
+            <input
+                type="number"
+                name="marks"
+                placeholder="Enter Marks"
+                required
+            >
+
+            <label>Total Marks</label>
+
+            <input
+                type="number"
+                name="total_marks"
+                placeholder="Enter Total Marks"
+                required
+            >
+
+            <button type="submit">
+                Save Result
+            </button>
+
+        </form>
+
+        <br>
+
+        <a href="/admin/results/list" class="btn">
+            📋 View Results
+        </a>
+
+    </div>
+
+</section>
+
+<%- include("partials/footer") %>
+<script src="/js/script.js"></script>
+</body>
+</html>
