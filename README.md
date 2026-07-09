@@ -145,7 +145,7 @@ npm start
 
 ## 📈 Future Improvements
 
-- Forgot Password (OTP)
+
 - Dashboard Analytics
 - Online Fee Payment
 - SMS Notifications
@@ -155,7 +155,7 @@ npm start
 
 ## 👨‍💻 Developer
 
-**Rohit Yogi**
+**Rohit Nath Solanki**
 
 B.Tech Computer Science Student
 
