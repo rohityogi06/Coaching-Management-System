@@ -10,7 +10,7 @@ const app=express();
 const db = require("./models/db");
 //const bcrypt = require("bcrypt");
 const session = require("express-session");
-const port =8080;
+const PORT = process.env.PORT || 8080;
 //const multer = require("multer");
 //const path = require("path");
 //const PDFDocument = require("pdfkit");
@@ -2519,6 +2519,6 @@ app.post("/contact", async (req, res) => {
 //     }
 
 // });
-app.listen(port,()=>{
-  console.log(" listenin the server 8080");
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
