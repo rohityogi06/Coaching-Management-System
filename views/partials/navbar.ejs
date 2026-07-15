@@ -2,9 +2,11 @@
 
     <nav class="navbar">
 
-        <h2>Sandeep Coaching Classes</h2>
+        <div class="logo">
+            <h2>Sandeep Coaching Classes</h2>
+        </div>
 
-        <!-- Hamburger -->
+        <!-- Mobile Toggle -->
         <div class="menu-toggle">
             ☰
         </div>
@@ -22,27 +24,29 @@
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
 
-            <% } %>
+                <% } %>
 
-            <% if (locals.student) { %>
+                    <% if (locals.student) { %>
 
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/student/profile">My Profile</a></li>
-                <li><a href="/student/notes">Study Material</a></li>
-                <li><a href="/logout">Logout</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/student/profile">My Profile</a></li>
+                        <li><a href="/student/notes">Study Material</a></li>
+                        <li><a href="/logout">Logout</a></li>
 
-            <% } %>
+                        <% } %>
 
-            <% if (locals.admin) { %>
+                            <% if (locals.admin) { %>
 
-                <li><a href="/admin/dashboard">Admin Dashboard</a></li>
-                <li><a href="/admin/profile">My Profile</a></li>
-                <li><a href="/admin/logout">Logout</a></li>
+                                <li><a href="/admin/dashboard">Admin Dashboard</a></li>
+                                <li><a href="/admin/profile">My Profile</a></li>
+                                <li><a href="/admin/logout">Logout</a></li>
 
-            <% } %>
+                                <% } %>
 
         </ul>
 
     </nav>
+
+    <div class="nav-overlay"></div>
 
 </header>

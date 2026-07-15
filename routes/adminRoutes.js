@@ -3,6 +3,7 @@ const router = express.Router();
 const upload = require("../middleware/upload");
 
 const adminController = require("../controllers/adminController");
+const profileUpload = require("../middleware/profileUpload");
 
 //admin deshbored
 router.get("/admin/dashboard", adminController.dashboard);
@@ -204,7 +205,11 @@ router.get("/admin/reports/results/pdf", adminController.resultsReportPDF);
 router.get("/admin/profile", adminController.showProfile);
 
 // Update Admin Profile
-router.post("/admin/profile", adminController.updateProfile);
+router.post(
+    "/admin/profile",
+    profileUpload.single("profile_photo"),
+    adminController.updateProfile
+);
 
 // ===========================
 // Student Registration Requests

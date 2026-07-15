@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>Admin Profile</title>
+
 <link rel="stylesheet" href="/css/style.css">
+
 </head>
 
 <body>
@@ -34,8 +39,35 @@
 
 <% } %>
 
+<!-- ===================== -->
 <!-- Update Profile -->
-<form action="/admin/profile" method="POST">
+<!-- ===================== -->
+
+<form
+action="/admin/profile"
+method="POST"
+enctype="multipart/form-data"
+>
+
+<!-- Profile Photo -->
+
+<div class="profile-photo-box">
+
+<img
+src="/uploads/profile/<%= admin.profile_photo || 'default.png' %>"
+alt="Admin Photo"
+class="profile-photo"
+>
+
+</div>
+
+<label>Profile Photo</label>
+
+<input
+type="file"
+name="profile_photo"
+accept=".jpg,.jpeg,.png"
+>
 
 <label>Name</label>
 
@@ -56,12 +88,16 @@ required
 >
 
 <button type="submit">
-Update Profile
+💾 Update Profile
 </button>
 
 </form>
 
 <hr>
+
+<!-- ===================== -->
+<!-- Change Password -->
+<!-- ===================== -->
 
 <h2>🔒 Change Password</h2>
 
@@ -87,7 +123,7 @@ required
 >
 
 <button type="submit">
-Change Password
+🔑 Change Password
 </button>
 
 </form>
@@ -97,6 +133,9 @@ Change Password
 </section>
 
 <%- include("partials/footer") %>
+
 <script src="/js/script.js"></script>
+
 </body>
+
 </html>

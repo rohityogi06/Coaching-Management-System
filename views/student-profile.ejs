@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
+
     <title>Student Profile</title>
+
     <link rel="stylesheet" href="/css/style.css">
+
 </head>
+
 <body>
 
 <%- include("partials/navbar") %>
@@ -15,13 +20,28 @@
 
     <h2>👤 My Profile</h2>
 
-    <!-- ✅ SUCCESS / ERROR MESSAGE -->
-    <% if (typeof success !== 'undefined') { %>
-        <p style="color: green; font-weight: bold;"><%= success %></p>
+    <!-- ===================== -->
+    <!-- SUCCESS / ERROR MESSAGE -->
+    <!-- ===================== -->
+
+    <% if(typeof success !== "undefined"){ %>
+
+        <p class="success-message">
+
+            <%= success %>
+
+        </p>
+
     <% } %>
 
-    <% if (typeof error !== 'undefined') { %>
-        <p style="color: red; font-weight: bold;"><%= error %></p>
+    <% if(typeof error !== "undefined"){ %>
+
+        <p class="error-message">
+
+            <%= error %>
+
+        </p>
+
     <% } %>
 
     <hr>
@@ -29,37 +49,106 @@
     <!-- ===================== -->
     <!-- PROFILE UPDATE FORM -->
     <!-- ===================== -->
-    <form method="POST" action="/student/profile">
+
+    <form
+        method="POST"
+        action="/student/profile"
+        enctype="multipart/form-data"
+    >
+
+        <!-- Profile Photo -->
+
+        <div class="profile-photo-box">
+
+            <img
+
+                src="/uploads/profile/<%= student.profile_photo || 'default.png' %>"
+
+                alt="Profile"
+
+                class="profile-photo"
+
+            >
+
+        </div>
+
+        <label>Profile Photo</label>
+
+        <input
+            type="file"
+            name="profile_photo"
+            accept=".jpg,.jpeg,.png"
+        >
 
         <label>Name</label>
-        <input type="text" name="name" value="<%= student.name %>" required>
+
+        <input
+            type="text"
+            name="name"
+            value="<%= student.name %>"
+            required
+        >
 
         <label>Email</label>
-        <input type="email" name="email" value="<%= student.email %>" required>
+
+        <input
+            type="email"
+            name="email"
+            value="<%= student.email %>"
+            required
+        >
 
         <label>Phone</label>
-        <input type="text" name="phone" value="<%= student.phone %>" required>
 
-        <button type="submit">Update Profile</button>
+        <input
+            type="text"
+            name="phone"
+            value="<%= student.phone %>"
+            required
+        >
+
+        <button type="submit">
+
+            💾 Update Profile
+
+        </button>
 
     </form>
 
     <hr>
 
     <!-- ===================== -->
-    <!-- CHANGE PASSWORD FORM -->
+    <!-- CHANGE PASSWORD -->
     <!-- ===================== -->
+
     <h3>🔒 Change Password</h3>
 
-    <form method="POST" action="/student/change-password">
+    <form
+        method="POST"
+        action="/student/change-password"
+    >
 
         <label>Old Password</label>
-        <input type="password" name="oldPassword" required>
+
+        <input
+            type="password"
+            name="oldPassword"
+            required
+        >
 
         <label>New Password</label>
-        <input type="password" name="newPassword" required>
 
-        <button type="submit">Change Password</button>
+        <input
+            type="password"
+            name="newPassword"
+            required
+        >
+
+        <button type="submit">
+
+            🔑 Change Password
+
+        </button>
 
     </form>
 
@@ -68,6 +157,9 @@
 </section>
 
 <%- include("partials/footer") %>
+
 <script src="/js/script.js"></script>
+
 </body>
+
 </html>

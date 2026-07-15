@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,55 +10,56 @@
 
 <body>
 
-<!-- NAVBAR -->
-<%- include("partials/navbar") %>
+    <!-- NAVBAR -->
+    <%- include("partials/navbar") %>
 
-<main>
+        <main>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Contact Us</h1>
-        <p>We are here to help you anytime</p>
-    </section>
+            <!-- HERO -->
+            <section class="hero">
+                <h1>Contact Us</h1>
+                <p>We are here to help you anytime</p>
+            </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section">
+            <!-- CONTACT SECTION -->
+            <section class="contact-section">
 
-        <h2>Get in Touch</h2>
+                <h2>Get in Touch</h2>
 
-        <div class="contact-container">
+                <div class="contact-container">
 
-            <!-- INFO -->
-            <div class="contact-info">
-                <p><strong>Coaching:</strong> Sandeep Coaching Classes</p>
-                <p><strong>Phone:</strong> +91 7000394655</p>
-                <p><strong>Email:</strong> info@sandeepcoaching.com</p>
-                <p><strong>Address:</strong> Madhya Pradesh, India</p>
-            </div>
+                    <!-- INFO -->
+                    <div class="contact-info">
+                        <p><strong>Coaching:</strong> Sandeep Coaching Classes</p>
+                        <p><strong>Phone:</strong> +91 7000394655</p>
+                        <p><strong>Email:</strong> sandeepnath487@gmail.com</p>
+                        <p><strong>Address:</strong> Madhya Pradesh, India</p>
+                    </div>
 
-            <!-- FORM -->
-            <form class="contact-form" action="/contact" method="POST">
+                    <!-- FORM -->
+                    <form class="contact-form" action="/contact" method="POST">
 
-    <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="text" name="name" placeholder="Your Name" required>
 
-    <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
 
-    <input type="text" name="subject" placeholder="Subject">
+                        <input type="text" name="subject" placeholder="Subject">
 
-    <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+                        <textarea name="message" rows="5" placeholder="Your Message"></textarea>
 
-    <button type="submit">Send Message</button>
+                        <button type="submit">Send Message</button>
 
-</form>
+                    </form>
 
-        </div>
+                </div>
 
-    </section>
+            </section>
 
-</main>
+        </main>
 
-<!-- FOOTER -->
-<%- include("partials/footer") %>
-<script src="/js/script.js"></script>
+        <!-- FOOTER -->
+        <%- include("partials/footer") %>
+            <script src="/js/script.js"></script>
 </body>
+
 </html>

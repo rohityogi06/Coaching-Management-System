@@ -319,7 +319,7 @@ exports.sendOTP = (req, res) => {
 
             // Student nahi mila to Admin check
             db.query(
-                "SELECT * FROM admin WHERE email=?",
+                "SELECT * FROM admins WHERE email=?",
                 [email],
                 async (err, adminResult) => {
 
@@ -422,9 +422,13 @@ exports.verifyOTP = (req, res) => {
 // Reset Password Page
 // ==============================
 
-exports.showResetPassword=(req,res)=>{
-     res.render("reset-password");
+exports.showResetPassword = (req, res) => {
+    res.render("reset-password");
 }
+
+// ==============================
+// Reset Password
+// ==============================
 
 // ==============================
 // Reset Password
@@ -432,7 +436,13 @@ exports.showResetPassword=(req,res)=>{
 
 exports.resetPassword = async (req, res) => {
 
+    console.log("========= RESET PASSWORD =========");
+    console.log("Role:", req.session.role);
+    console.log("Email:", req.session.email);
+
     const { password, confirmPassword } = req.body;
+
+    // const { password, confirmPassword } = req.body;
 
     if (password !== confirmPassword) {
 
@@ -442,7 +452,10 @@ exports.resetPassword = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // ==========================
     // Student
+    // ==========================
+
     if (req.session.role === "student") {
 
         db.query(
@@ -455,7 +468,7 @@ exports.resetPassword = async (req, res) => {
 
                 if (err) return res.send("Database Error");
 
-                // Session Clear
+                // Clear Session
                 req.session.otp = null;
                 req.session.email = null;
                 req.session.role = null;
@@ -472,12 +485,15 @@ exports.resetPassword = async (req, res) => {
 
     }
 
+    // ==========================
     // Admin
-    else {
+    // ==========================
+
+    else if (req.session.role === "admin") {
 
         db.query(
 
-            "UPDATE admin SET password=? WHERE email=?",
+            "UPDATE admins SET password=? WHERE email=?",
 
             [hashedPassword, req.session.email],
 
@@ -485,6 +501,7 @@ exports.resetPassword = async (req, res) => {
 
                 if (err) return res.send("Database Error");
 
+                // Clear Session
                 req.session.otp = null;
                 req.session.email = null;
                 req.session.role = null;

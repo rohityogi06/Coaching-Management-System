@@ -13,11 +13,27 @@
 
 <!-- Hero -->
 
+<!-- Hero -->
+
 <section class="hero">
 
-    <h1>Welcome Admin 👨‍🏫</h1>
+    <div class="admin-profile-box">
 
-    <p>Manage your coaching classes from one place.</p>
+        <img
+            src="/uploads/profile/<%= admin.profile_photo || 'default.png' %>"
+            alt="Admin Profile"
+            class="admin-dashboard-photo"
+        >
+
+        <h1>Welcome, <%= admin.name %> 👋</h1>
+
+        <p><%= admin.email %></p>
+
+        <a href="/admin/profile" class="profile-btn">
+            ✏️ Edit Profile
+        </a>
+
+    </div>
 
 </section>
 

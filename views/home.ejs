@@ -1,226 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandeep Coaching Classes</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header>
+    <!-- HEADER -->
+    <header>
 
-    <nav class="navbar">
+        <%- include("partials/navbar") %>
 
-        <h2>Sandeep Coaching Classes</h2>
+    </header>
 
-        <ul>
+    <!-- MAIN -->
+    <main>
 
-            <li><a href="/">Home</a></li>
+        <!-- HERO -->
+        <section class="hero">
 
-            <li><a href="/about">About</a></li>
+            <h1>Welcome to Sandeep Coaching Classes</h1>
 
-            <li><a href="/courses">Courses</a></li>
+            <p>
+                Quality Education for Class 8, Navodaya,
+                Class 9, 10, 11 & 12 Students.
+            </p>
 
-            <li><a href="/teachers">Teachers</a></li>
+            <br>
 
-            <li><a href="/contact">Contact</a></li>
+            <a href="/courses">
+                <button>📚 Explore Courses</button>
+            </a>
 
-            <li><a href="/login">Student Login</a></li>
+            <a href="/contact">
+                <button>📞 Contact Us</button>
+            </a>
 
-            <li><a href="/register">Student Register</a></li>
+            <br><br>
 
-            <li><a href="/admin/login">Admin Login</a></li>
+            <a href="/login">
+                <button>👨‍🎓 Student Login</button>
+            </a>
 
-        </ul>
+            <a href="/admin/login">
+                <button>👨‍🏫 Admin Login</button>
+            </a>
 
-    </nav>
+        </section>
 
-</header>
+        <!-- WHY CHOOSE US -->
+        <section class="why-choose">
 
-<!-- MAIN -->
-<main>
+            <h2>Why Choose Sandeep Coaching Classes?</h2>
 
-    <!-- HERO -->
-    <section class="hero">
+            <div class="feature-card">
+                <h3>3+ Years Experience</h3>
+                <p>Providing quality education with dedication and commitment.</p>
+            </div>
 
-        <h1>Welcome to Sandeep Coaching Classes</h1>
+            <div class="feature-card">
+                <h3>Expert Teaching</h3>
+                <p>Simple and easy teaching methods for better understanding.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Regular Tests</h3>
+                <p>Weekly tests to track student performance.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Doubt Solving</h3>
+                <p>Special doubt sessions for every student.</p>
+            </div>
+
+        </section>
+
+        <!-- CLASSES -->
+        <section class="classes-section">
+
+            <h2>Classes We Teach</h2>
+
+            <div class="class-grid">
+
+                <div class="class-card">
+                    <h3>Class 8</h3>
+                    <p>Strong foundation in all major subjects.</p>
+                </div>
+
+                <div class="class-card">
+                    <h3>Navodaya Preparation</h3>
+                    <p>Special coaching for Navodaya Entrance Exam.</p>
+                </div>
+
+                <div class="class-card">
+                    <h3>Class 9</h3>
+                    <p>Complete syllabus with regular tests.</p>
+                </div>
+
+                <div class="class-card">
+                    <h3>Class 10</h3>
+                    <p>Board preparation with practice papers.</p>
+                </div>
+
+                <div class="class-card">
+                    <h3>Class 11 (Science)</h3>
+                    <p>Mathematics & English.</p>
+                </div>
+
+                <div class="class-card">
+                    <h3>Class 12 (Science)</h3>
+                    <p>Mathematics & English.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SUBJECTS -->
+        <section class="subjects-section">
+
+            <h2>Subjects Offered</h2>
+
+            <div class="subject-card">
+                <h3>📘 Mathematics</h3>
+                <p>Basic to Advanced Problem Solving.</p>
+            </div>
+
+            <div class="subject-card">
+                <h3>📖 English</h3>
+                <p>Grammar, Writing Skills & Spoken English.</p>
+            </div>
+
+        </section>
+
+        <!-- REVIEWS -->
+        <section class="reviews-section">
+
+            <h2>Student Reviews</h2>
+
+            <div class="review-card">
+
+                <h3>Rahul Sharma</h3>
+
+                <p>
+                    "Sandeep Sir explains every concept very clearly.
+                    Regular tests improved my marks."
+                </p>
+
+                ⭐⭐⭐⭐⭐
+
+            </div>
+
+            <div class="review-card">
+
+                <h3>Priya Verma</h3>
+
+                <p>
+                    "Best Coaching for Mathematics and English."
+                </p>
+
+                ⭐⭐⭐⭐⭐
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact-section">
+
+            <h2>Contact Us</h2>
+
+            <p><strong>Coaching:</strong> Sandeep Coaching Classes</p>
+
+            <p><strong>Phone:</strong> +91 XXXXXXXXXX</p>
+
+            <p><strong>Email:</strong> info@sandeepcoaching.com</p>
+
+            <p><strong>Address:</strong> Your City, Madhya Pradesh</p>
+
+            <a href="/contact">
+                <button>📞 Contact Now</button>
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
 
         <p>
-            Quality Education for Class 8, Navodaya,
-            Class 9, 10, 11 & 12 Students.
+            © 2026 Sandeep Coaching Classes.
+            All Rights Reserved.
         </p>
 
-        <br>
-
-        <a href="/courses">
-            <button>📚 Explore Courses</button>
-        </a>
-
-        <a href="/contact">
-            <button>📞 Contact Us</button>
-        </a>
-
-        <br><br>
-
-        <a href="/login">
-            <button>👨‍🎓 Student Login</button>
-        </a>
-
-        <a href="/admin/login">
-            <button>👨‍🏫 Admin Login</button>
-        </a>
-
-    </section>
-
-    <!-- WHY CHOOSE US -->
-    <section class="why-choose">
-
-        <h2>Why Choose Sandeep Coaching Classes?</h2>
-
-        <div class="feature-card">
-            <h3>3+ Years Experience</h3>
-            <p>Providing quality education with dedication and commitment.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>Expert Teaching</h3>
-            <p>Simple and easy teaching methods for better understanding.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>Regular Tests</h3>
-            <p>Weekly tests to track student performance.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>Doubt Solving</h3>
-            <p>Special doubt sessions for every student.</p>
-        </div>
-
-    </section>
-
-    <!-- CLASSES -->
-    <section class="classes-section">
-
-        <h2>Classes We Teach</h2>
-
-        <div class="class-grid">
-
-            <div class="class-card">
-                <h3>Class 8</h3>
-                <p>Strong foundation in all major subjects.</p>
-            </div>
-
-            <div class="class-card">
-                <h3>Navodaya Preparation</h3>
-                <p>Special coaching for Navodaya Entrance Exam.</p>
-            </div>
-
-            <div class="class-card">
-                <h3>Class 9</h3>
-                <p>Complete syllabus with regular tests.</p>
-            </div>
-
-            <div class="class-card">
-                <h3>Class 10</h3>
-                <p>Board preparation with practice papers.</p>
-            </div>
-
-            <div class="class-card">
-                <h3>Class 11 (Science)</h3>
-                <p>Mathematics & English.</p>
-            </div>
-
-            <div class="class-card">
-                <h3>Class 12 (Science)</h3>
-                <p>Mathematics & English.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- SUBJECTS -->
-    <section class="subjects-section">
-
-        <h2>Subjects Offered</h2>
-
-        <div class="subject-card">
-            <h3>📘 Mathematics</h3>
-            <p>Basic to Advanced Problem Solving.</p>
-        </div>
-
-        <div class="subject-card">
-            <h3>📖 English</h3>
-            <p>Grammar, Writing Skills & Spoken English.</p>
-        </div>
-
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews-section">
-
-        <h2>Student Reviews</h2>
-
-        <div class="review-card">
-
-            <h3>Rahul Sharma</h3>
-
-            <p>
-                "Sandeep Sir explains every concept very clearly.
-                Regular tests improved my marks."
-            </p>
-
-            ⭐⭐⭐⭐⭐
-
-        </div>
-
-        <div class="review-card">
-
-            <h3>Priya Verma</h3>
-
-            <p>
-                "Best Coaching for Mathematics and English."
-            </p>
-
-            ⭐⭐⭐⭐⭐
-
-        </div>
-
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact-section">
-
-        <h2>Contact Us</h2>
-
-        <p><strong>Coaching:</strong> Sandeep Coaching Classes</p>
-
-        <p><strong>Phone:</strong> +91 XXXXXXXXXX</p>
-
-        <p><strong>Email:</strong> info@sandeepcoaching.com</p>
-
-        <p><strong>Address:</strong> Your City, Madhya Pradesh</p>
-
-        <a href="/contact">
-            <button>📞 Contact Now</button>
-        </a>
-
-    </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer class="footer">
-
-    <p>
-        © 2026 Sandeep Coaching Classes.
-        All Rights Reserved.
-    </p>
-
-</footer>
-<script src="/js/script.js"></script>
+    </footer>
+    <script src="/js/script.js"></script>
 </body>
+
 </html>

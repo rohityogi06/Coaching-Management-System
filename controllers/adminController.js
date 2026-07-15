@@ -34,14 +34,24 @@ exports.dashboard = (req, res) => {
                                     "SELECT COUNT(*) AS pendingRequests FROM students WHERE status='Pending'",
                                     (err, pending) => {
 
-                                        res.render("admin-dashboard", {
-                                            totalStudents: students[0].totalStudents,
-                                            totalCourses: courses[0].totalCourses,
-                                            totalFees: fees[0].totalFees,
-                                            totalRevenue: revenue[0].totalRevenue || 0,
-                                            totalResults: results[0].totalResults,
-                                            totalNotices: notices[0].totalNotices,
-                                            pendingRequests: pending[0].pendingRequests
+                                       res.render("admin-dashboard", {
+
+                                           admin: req.session.admin,
+            
+                                           totalStudents: students[0].totalStudents,
+
+                                           totalCourses: courses[0].totalCourses,
+
+                                           totalFees: fees[0].totalFees,
+                           
+                                           totalRevenue: revenue[0].totalRevenue || 0,
+
+                                           totalResults: results[0].totalResults,
+
+                                           totalNotices: notices[0].totalNotices,
+
+                                           pendingRequests: pending[0].pendingRequests
+
                                         });
 
                                     }
@@ -1563,17 +1573,42 @@ exports.updateProfile = (req, res) => {
 
     const { name, email } = req.body;
 
-    const sql = `
+    // Default Query
+    let sql = `
         UPDATE admins
         SET name = ?, email = ?
         WHERE id = ?
     `;
 
-    db.query(sql, [name, email, adminId], (err) => {
+    let values = [name, email, adminId];
+
+    // If New Photo Uploaded
+    if (req.file) {
+
+        sql = `
+            UPDATE admins
+            SET name = ?, email = ?, profile_photo = ?
+            WHERE id = ?
+        `;
+
+        values = [
+            name,
+            email,
+            req.file.filename,
+            adminId
+        ];
+
+        req.session.admin.profile_photo = req.file.filename;
+    }
+
+    db.query(sql, values, (err) => {
 
         if (err) {
+
             console.log(err);
+
             return res.send("Profile Update Failed");
+
         }
 
         // Update Session
@@ -1581,16 +1616,16 @@ exports.updateProfile = (req, res) => {
         req.session.admin.email = email;
 
         res.render("admin-profile", {
+
             admin: req.session.admin,
+
             success: "✅ Profile Updated Successfully!"
+
         });
 
     });
 
 };
-
-
-
 // ===========================
 // Registration Requests Page
 // ===========================

@@ -70,7 +70,19 @@ app.use(session({
     saveUninitialized: false
 }));
 
+// ======================
+// Global Session Data
+// ======================
 
+app.use((req, res, next) => {
+
+    res.locals.student = req.session.student;
+
+    res.locals.admin = req.session.admin;
+
+    next();
+
+});
 app.use("/", authRoutes);
 app.use("/", studentRoutes);
 app.use("/", adminRoutes);

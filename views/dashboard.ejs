@@ -14,8 +14,17 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Welcome, <%= student.name %> 👋</h1>
-        <p>Welcome to your Student Dashboard.</p>
+
+    <img
+        src="/uploads/profile/<%= student.profile_photo || 'default.png' %>"
+        alt="Profile Photo"
+        class="dashboard-profile-photo"
+    >
+
+    <h1>Welcome, <%= student.name %> 👋</h1>
+
+    <p>Welcome to your Student Dashboard.</p>
+
     </section>
 
     <!-- Dashboard -->

@@ -1,8 +1,10 @@
 const express = require("express");
 
+
 const router = express.Router();
 
 const studentController = require("../controllers/studentController");
+const profileUpload = require("../middleware/profileUpload");
 
 // Dashboard
 router.get("/dashboard", studentController.showDashboard);
@@ -15,7 +17,12 @@ router.get("/dashboard", studentController.showDashboard);
 router.get("/student/profile", studentController.showProfile);
 
 // Update Profile
-router.post("/student/profile", studentController.updateProfile);
+// Update Profile
+router.post(
+    "/student/profile",
+    profileUpload.single("profile_photo"),
+    studentController.updateProfile
+);
 
 // ===========================
 // Study Material

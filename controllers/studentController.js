@@ -100,40 +100,64 @@ exports.showProfile = (req, res) => {
 // Update Profile
 // ==============================
 
+// ===========================
+// Update Student Profile
+// ===========================
+
 exports.updateProfile = (req, res) => {
 
     const studentId = req.session.student.id;
 
     const { name, email, phone } = req.body;
 
-    db.query(
+    // Default Query
+    let sql =
+        "UPDATE students SET name=?, email=?, phone=? WHERE id=?";
 
-        "UPDATE students SET name=?, email=?, phone=? WHERE id=?",
+    let values = [name, email, phone, studentId];
 
-        [name, email, phone, studentId],
+    // If Photo Uploaded
+    if (req.file) {
 
-        (err) => {
+        sql =
+            "UPDATE students SET name=?, email=?, phone=?, profile_photo=? WHERE id=?";
 
-            if (err) {
+        values = [
+            name,
+            email,
+            phone,
+            req.file.filename,
+            studentId
+        ];
 
-                return res.send("Update Failed");
+        // Session Update
+        req.session.student.profile_photo = req.file.filename;
+    }
 
-            }
+    db.query(sql, values, (err) => {
 
-            req.session.student.name = name;
-            req.session.student.email = email;
-            req.session.student.phone = phone;
+        if (err) {
 
-            res.render("student-profile", {
+            console.log(err);
 
-                student: req.session.student,
-                success: "Profile updated successfully ✅"
-
-            });
+            return res.send("Update Failed");
 
         }
 
-    );
+        // Session Update
+        req.session.student.name = name;
+        req.session.student.email = email;
+        req.session.student.phone = phone;
+
+        res.render("student-profile", {
+
+            student: req.session.student,
+
+            success: "✅ Profile Updated Successfully"
+
+        });
+
+    });
 
 };
 
